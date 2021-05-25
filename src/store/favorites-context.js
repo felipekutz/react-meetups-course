@@ -9,7 +9,10 @@ const FavoritesContext = createContext({
 });
 
 export function FavoritesContextProvider(props) {
-  const [userFavorites, setUserFavorites] = useState([]);
+  let init = JSON.parse(window.localStorage.getItem('Favorites')) ? JSON.parse(window.localStorage.getItem('Favorites')) : [];
+
+  const [userFavorites, setUserFavorites] = useState(init);
+  window.localStorage.setItem('Favorites', JSON.stringify(userFavorites))
   function addFavoriteHandler(favoriteMeetup) {
     setUserFavorites((prevUserFavorites) => {
       return prevUserFavorites.concat(favoriteMeetup);
