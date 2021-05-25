@@ -2,6 +2,7 @@ import { useRef } from "react";
 import Card from "../ui/Card";
 import classes from "./NewMeetup.module.css";
 
+
 function NewMeetupForm(props) {
   const titleInputRef = useRef();
   const imageInputRef = useRef();
